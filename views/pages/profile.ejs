@@ -1,0 +1,38 @@
+<% layout("/layout/boilerplate") -%>
+<% block("head").append("<link rel='stylesheet' href='/css/profile.css'>") %>
+
+<div class="container">
+  <div class="pro-store">
+    <img src="<%= user.avatar.path %>" alt="profile-pic" id="avatar-preview">
+  </div>
+
+  <form action="/profile?_method=PUT" method="post" enctype="multipart/form-data">
+    <label class="changePic" for="avatar">Change Picture<i class="material-icons">edit</i></label>
+    <input type="file" name="avatar" id="avatar">
+    <div class="userName">
+      <label>Username</label><input type="text" class="inUser" value="<%= user.username %>" name="username">
+      <button type="Submit">Save</button>
+    </div>
+  </form>
+
+  <p class="text">Content Uploaded</p>
+
+  <% for (let resource of resources){ %>
+  <div class="vidUpl">
+    <p class="title"><%= resource.title %></p>
+    <div class="icons">
+      <div><i class="material-icons"> arrow_upward</i>
+        <p><%= resource.upvotes %></p>
+      </div>
+      <div><i class="material-icons">arrow_downward</i>
+        <p><%= resource.downvotes %></p>
+      </div>
+      <form action="/resources/<%= resource.id %>?_method=DELETE" method="POST">
+        <button class="del"><i class="material-icons">delete</i></button>
+      </form>
+    </div>
+  </div>
+  <% } %>
+
+</div>
+<script src="/javascript/profile.js"></script>

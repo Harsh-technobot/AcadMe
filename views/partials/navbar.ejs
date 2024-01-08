@@ -1,0 +1,90 @@
+<nav class="my-navbar">
+  <a href="/" class="my-nav-logo">AcadMe</a>
+  <% if (page === "home" || page === "library"){ %>
+  <form action="<%= page === 'library' ? '/library': '/' %>" class="search">
+    <input type="text" placeholder="Search" name="searchTerm" value="<%= searchTerm ? searchTerm: '' %>">
+    <div class="popUp">
+      <div class="material-icons close">close</div>
+      <h3>Filter</h3>
+      <div class="groups">
+        <div class="group">
+          <div>
+            <input type="radio" name="filter[sort]" value="createdAt" <%= filter.sortBy === 'createdAt' && 'checked' %>>
+            <label>&nbspNewest</label>
+          </div>
+          <div>
+            <input type="radio" name="filter[sort]" value="upvotes" <%= filter.sortBy === 'upvotes' && 'checked' %>>
+            <label>&nbspMost Liked</label>
+          </div>
+        </div>
+        <div class="group">
+          <div>
+            <input type="checkbox" value="Computer Science" name="filter[tags]"
+              <%= filter.tags.includes("Computer Science") && 'checked' %>>
+            <label>&nbspComputer Science</label>
+          </div>
+          <div>
+            <input type="checkbox" value="Mechanics" name="filter[tags]"
+              <%= filter.tags.includes("Mechanics") && 'checked' %>>
+            <label>&nbspMechanics</label>
+          </div>
+          <div>
+            <input type="checkbox" value="Mathematics" name="filter[tags]"
+              <%= filter.tags.includes("Mathematics") && 'checked' %>>
+            <label>&nbspMathematics</label>
+          </div>
+          <div>
+            <input type="checkbox" value="Literature" name="filter[tags]"
+              <%= filter.tags.includes("Literature") && 'checked' %>>
+            <label>&nbspLiterature</label>
+          </div>
+          <div>
+            <input type="checkbox" value="Other" name="filter[tags]" <%= filter.tags.includes("Other") && 'checked' %>>
+            <label>&nbspOther</label>
+          </div>
+        </div>
+        <div class="group">
+          <div>
+            <input type="checkbox" name="filter[type]" value="pdf" <%= filter.type.includes("pdf") && 'checked' %>>
+            <label>&nbspPdf</label>
+          </div>
+          <div>
+            <input type="checkbox" name="filter[type]" value="video" <%= filter.type.includes("video") && 'checked' %>>
+            <label>&nbspVideos</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="submit"><i class="material-icons">search</i></button>
+    <button type="button"><i class="material-icons tune">tune</i></button>
+  </form>
+  <%}%>
+  <% if (user){ %>
+  <div class="profile">
+    <span><%= user.username %></span>
+    <div class="my-nav-profile-image">
+      <img src="<%= user.avatar.path %>" alt="profile-pic">
+    </div>
+    <i class="material-icons down">
+      expand_more
+    </i>
+  </div>
+  <% } else { %>
+  <ul class="my-nav-links">
+    <li>
+      <a href="/about">About</a>
+    </li>
+    <li>
+      <a href="/auth/login">Login</a>
+    </li>
+    <li>
+      <a href="/auth/register">Signup</a>
+    </li>
+  </ul>
+  <% } %>
+</nav>
+<div class="profile-menu">
+  <a href="/profile">Profile</a>
+  <a href="/about">About</a>
+  <a href="/auth/logout">Log out</a>
+</div>

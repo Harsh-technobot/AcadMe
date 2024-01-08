@@ -1,0 +1,113 @@
+<% layout("/layout/boilerplate") -%>
+
+<%- block("head").append("<link href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3' crossorigin='anonymous'>") -%>
+
+<%- block("head").append("<link href='/css/resource.css' rel='stylesheet'>") -%>
+
+<div class="container main text-white">
+  <div class="border-bottom">
+    <h1>
+      <%= resource.title %>
+    </h1>
+    <h4 class="text-muted">
+      Shared by <%= resource.author.username %>
+    </h4>
+    <h6 class="text-muted">
+      <%= format(resource.createdAt, "MMM d, yyyy") %>
+    </h6>
+  </div>
+  <% if (resource.embed){ %>
+  <iframe src="<%= resource.embed %>" width="100%" height="500px"></iframe>
+  <% } else { %>
+  <h3 class="mt-2">Link</h3>
+  <div class="dlink">
+    <a href="<%= resource.link %>" target="_none"><%= resource.link %></a>
+  </div>
+  <% } %>
+  <div class="d-flex mt-2">
+    <div class="me-2 upvotes">
+      <div class="btn votes <%= upvoted && 'text-white' %>" id="upvote-btn">
+        <i class=" fas fa-thumbs-up"></i>
+        <span id="upvotes-num"><%= resource.upvotes %></span>
+      </div>
+    </div>
+    <div class="downvotes">
+      <div class="btn votes <%= downvoted && 'text-white' %>" id="downvote-btn">
+        <i class="fas fa-thumbs-down"></i>
+        <span id="downvotes-num"><%= resource.downvotes %></span>
+      </div>
+    </div>
+  </div>
+  <div class="mt-2">
+    <h4>
+      Description
+    </h4>
+    <p>
+      <%= resource.description %>
+    </p>
+  </div>
+  <div class="mt-2">
+    <h4>
+      Tags
+    </h4>
+    <ul class="list-inline">
+      <% resource.tags.forEach(function(tag) { %>
+      <li class="list-inline-item">
+        <span class="btn badge bg-primary">
+          <%= tag %>
+        </span>
+      </li>
+      <% }) %>
+    </ul>
+  </div>
+  <div class="mt-2 mb-2">
+    <h4 class="border-bottom">
+      Discussion
+    </h4>
+    <% if (currentUser) { %>
+    <form action="/resources/<%= resource.id %>/comment" method="POST">
+      <div class="form-group">
+        <textarea class="form-control" name="text" rows="3" placeholder="Add a comment..." required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary my-2">
+        Add Comment
+      </button>
+    </form>
+    <% } %>
+  </div>
+  <div>
+    <% if (comments.length === 0){ %>
+    <p>
+      No comments yet.
+    </p>
+    <% } else { %>
+    <% for(let comment of comments) { %>
+    <div class="bg-dark p-2 d-flex rounded mb-3">
+      <div class="author-avatar me-3">
+        <img src="<%= comment.author.avatar.path %>" alt="avatar">
+      </div>
+      <div>
+        <h5 class="mt-0">
+          <%= comment.author.username %>
+          <span class="text-muted d-block comment-date">
+            <%= format(comment.createdAt, "MMM d, yyyy") %>
+          </span>
+        </h5>
+        <p>
+          <%= comment.text %>
+        </p>
+      </div>
+    </div>
+    <% } %>
+    <% } %>
+  </div>
+</div>
+<script>
+  const resourceId = "<%- resource.id %>";
+  let upvoted = "<%- upvoted %>";
+  let downvoted = "<%- downvoted %>";
+  const user = "<%- currentUser ? currentUser.id : null %>";
+</script>
+<script src="/javascript/resource.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

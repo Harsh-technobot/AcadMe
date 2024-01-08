@@ -1,0 +1,70 @@
+<% layout("/layout/boilerplate") -%>
+<% block("head").append("<link rel='stylesheet' href='/css/home.css'>") %>
+
+<div class="container">
+  <div class="sideMenu">
+    <div class="icons">
+      <a class="material-icons <%= page==='home' && 'active' %>" href="/">home</a>
+      <a class="material-icons <%= page==='library' && 'active' %>" href="/library">video_library</a>
+    </div>
+
+    <a class="add" href="/resources/new">
+      +
+    </a>
+  </div>
+
+  <% if(resources.length === 0){ %>
+  <div class="no-resources">
+    <div class="material-icons">videocam_off</div>
+    <div class="text">
+      No resources found
+    </div>
+  </div>
+  <% } else { %>
+  <div class="vidSec">
+    <% for (let resource of resources){ %>
+    <a href="/resources/<%= resource.id %>" class="vidTile">
+      <div class="vidCon">
+        <div class="column1">
+          <div>
+            <i class="material-icons make_bold">arrow_upward </i>
+            <p class="votes upvotes"><%= resource.upvotes %> </p>
+          </div>
+          <div>
+            <i class="material-icons">
+              arrow_downward
+            </i>
+            <p class="votes downvotes"><%= resource.downvotes %> </p>
+          </div>
+          <form action="/library?_method=DELETE" method="POST">
+            <input type="hidden" name="resourceId" value="<%= resource.id %>">
+            <button class="add-library-btn">
+              <i class="material-icons">
+                delete
+              </i>
+            </button>
+          </form>
+          <div class="img-store">
+            <img src="<%= resource.author.avatar.path %>" alt="profile-pic">
+          </div>
+        </div>
+        <div class="column2">
+          <div class="row1">
+            <img src="<%= resource.thumbnail ? resource.thumbnail : '/images/note-taking.png' %>"
+              alt="resource-thumbnail" class="thumb-image">
+          </div>
+          <div class="row2">
+            <p class="media_title">
+              <%= resource.title %>
+            </p>
+            <p class="channel_name make_bold">
+              <%= resource.author.username %>
+            </p>
+          </div>
+        </div>
+      </div>
+    </a>
+    <% } %>
+  </div>
+  <% } %>
+</div>

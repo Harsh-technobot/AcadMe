@@ -1,0 +1,281 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+/* Search Bar */
+.search {
+  margin: 0 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.search input {
+  width: 35vw;
+  border: none;
+  background-color: #504c4c;
+  height: 5.5vh;
+  padding: 0 3vw;
+  font-size: 20px;
+  color: white;
+}
+
+.search input:focus {
+  outline: none;
+  border: 2px solid rgb(190, 190, 190);
+}
+
+.search button {
+  border: none;
+  color: white;
+  width: 5vw;
+  height: 5.5vh;
+  display: flex;
+  justify-content: center;
+  background-color: #504c4c;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Flash Messages */
+.flash {
+  position: absolute;
+  top: 1%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  padding: 1rem 2rem;
+  min-width: 20rem;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flash-btn-close {
+  color: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.flash-success {
+  background-color: #dff0d8;
+  color: #3c763d;
+}
+
+.flash-error {
+  background-color: #f2dede;
+  color: #a94442;
+}
+
+/* Filter Popup */
+.popUp {
+  position: fixed;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  width: fit-content;
+  transform: translate(-50%, -50%);
+  background-color: #312f2f;
+  visibility: hidden;
+  border-radius: 1vw;
+  display: flex;
+  font-size: 1.5rem;
+  padding: 2rem;
+  flex-direction: column;
+}
+
+.groups {
+  display: flex;
+}
+
+.popUp .group {
+  margin: 0 2rem;
+  padding-right: 1rem;
+}
+
+.popUp h3 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: #f2f2f2;
+  display: block;
+}
+
+.popUp .group div {
+  margin-bottom: 1rem;
+}
+
+.popUp .group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  border-right: 1px solid #504c4c;
+}
+
+.popUp .group:nth-last-child(1) {
+  border-right: none;
+}
+
+.popUp .group input[type="checkbox"],
+.popUp .group input[type="radio"] {
+  width: 20px;
+  height: 20px;
+}
+
+.popUp .close {
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  cursor: pointer;
+}
+
+.popUp .close:hover {
+  font-weight: bold;
+}
+
+/* Navbar */
+
+.my-navbar {
+  color: white;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #312f2f;
+}
+
+.my-nav-logo {
+  color: white;
+  text-decoration: none;
+  font-size: 40px;
+  margin-left: 1vw;
+}
+
+.my-nav-logo:hover {
+  color: white;
+}
+
+.my-nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 50%;
+  height: 100%;
+  padding: 1rem;
+}
+
+.my-nav-links li {
+  list-style: none;
+  margin-left: 1vw;
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.my-nav-links a {
+  margin: 0 0.5rem;
+  text-decoration: none;
+  color: white;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  height: 10vh;
+  width: 16vw;
+  margin-right: 4vw;
+  justify-content: space-around;
+}
+
+.my-nav-profile-image {
+  width: 60px;
+  height: 60px;
+}
+
+.down {
+  cursor: pointer;
+}
+
+.down:hover {
+  font-weight: bold;
+}
+
+.my-nav-profile-image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 60px;
+}
+
+/* Profile box */
+
+.profile-menu {
+  position: fixed;
+  z-index: 11;
+  top: 10vh;
+  right: 1%;
+  width: 12vw;
+  height: 32vh;
+  background-color: #312f2f;
+  padding-left: 1vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  visibility: hidden;
+}
+
+.profile-menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  margin: 1vh 0;
+}
+
+.profile-menu a:hover {
+  font-weight: bold;
+}
+
+@media screen and (max-width: 912px) {
+  .profile {
+    width: 50vw;
+  }
+
+  .search {
+    position: fixed;
+    top: 11vh;
+    left: 7vw;
+  }
+
+  .search button {
+    width: 15vw;
+  }
+
+  .my-nav-logo {
+    font-size: 30px;
+  }
+
+  .profile-menu {
+    width: 50vw;
+    height: 35vh;
+    padding-left: 2vw;
+  }
+
+  .popUp {
+    transform: scale(0.5);
+    left: -25%;
+    top: 25%;
+  }
+}

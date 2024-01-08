@@ -1,0 +1,27 @@
+<% layout("/layout/boilerplate") -%>
+<% block("head").append("<link rel='stylesheet' href='/css/add.css'>") %>
+
+<form class="upload" action="/resources/new" method="POST">
+  <label>Title</label><input type="text" name="title" class="title" required>
+  <div class="type">
+    <h1>Type</h1>
+    <div><input type="radio" name="type" value="video" checked>&nbspVideo</div>
+    <div><input type="radio" name="type" value="pdf">&nbspPdf</div>
+  </div>
+  <label>Link</label><input type="text" name="link" class="link" required pattern="https?://.+"
+    placeholder="https://...">
+
+  <div class="inoneline">
+    <h1>Category</h1>
+    <div><input type="checkbox" name="tags[]" value="Computer Science">&nbspComputer Science</div>
+    <div><input type="checkbox" name="tags[]" value="Mathematics">&nbspMathematics</div>
+    <div><input type="checkbox" name="tags[]" value="Mechanics">&nbspMechanics</div>
+    <div><input type="checkbox" name="tags[]" value="Literature">&nbspLiterature</div>
+    <div><input type="checkbox" name="tags[]" value="Other" checked>&nbspOther</div>
+  </div>
+
+  <label>Description</label><textarea class="desc" name="description" required></textarea>
+  <label>Tags</label><input type="text" name="additionalTags" placeholder="python , java , functions...." class="tags">
+
+  <button type="submit">UPLOAD</button>
+</form>

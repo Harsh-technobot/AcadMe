@@ -1,0 +1,221 @@
+body {
+  background-color: #000;
+}
+
+.container::-webkit-scrollbar {
+  width: 0.5vw;
+}
+
+.container::-webkit-scrollbar-thumb {
+  background-color: rgb(204, 204, 204);
+  border-radius: 0.2vw;
+}
+
+.container::-webkit-scrollbar-track {
+  background-color: black;
+}
+
+.container {
+  color: white;
+  overflow-x: hidden;
+  background-color: black;
+}
+
+.img-store {
+  width: 60px;
+  height: 60px;
+}
+
+.img-store img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 60px;
+}
+
+/*Profile section*/
+
+.pro-store {
+  margin: 20vh auto 5vh;
+  width: 200px;
+  height: 200px;
+}
+
+.pro-store img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 200px;
+}
+
+.changePic {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 5vw;
+  height: 6vh;
+  width: 15vw;
+  margin: 0 auto;
+  background-color: rgb(212, 0, 0);
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Change userName*/
+
+.userName {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 6vh;
+  width: 30vw;
+  margin: 5vh auto;
+  font-size: 24px;
+}
+
+.inUser {
+  height: 6vh;
+  width: 20vw;
+  border-radius: 5vw;
+  border: none;
+  background-color: #424141;
+  font-size: 24px;
+  padding-left: 2vw;
+  box-sizing: border-box;
+  color: white;
+}
+
+.inUser:focus {
+  outline: none;
+  border: 2px solid rgb(141, 141, 141);
+}
+
+.inUser:hover {
+  border: 1px solid white;
+}
+.userName button {
+  position: fixed;
+  bottom: 2vh;
+  right: 10vw;
+  height: 6vh;
+  border: none;
+  width: 10vw;
+  border-radius: 3vw;
+  background-color: #2d7240;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.userName button:hover {
+  background-color: #225330;
+}
+
+input#avatar {
+  display: none;
+}
+
+/* Uploaded */
+
+.text {
+  color: #c35e5e;
+  margin: 0 0 -5vh 10vw;
+  font-weight: bold;
+}
+
+.vidUpl {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #625a5a;
+  width: 90vw;
+  height: 10vh;
+  border-radius: 10vw;
+  margin: 6vh auto;
+  padding: 0 3vw;
+  box-sizing: border-box;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.icons {
+  width: 40vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-around;
+}
+
+.icons div {
+  text-align: center;
+}
+
+.icons div p {
+  font-size: 12px;
+}
+
+.icons .del {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10vh;
+  width: 6vw;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+
+.icons .del:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+@media screen and (max-width: 912px) {
+  .changePic,
+  .inUser {
+    width: 50vw;
+    height: 4.5vh;
+  }
+
+  .userName {
+    width: 90vw;
+  }
+
+  .userName button {
+    right: 10vw;
+    height: 8vh;
+    width: 40vw;
+    border-radius: 10vw;
+    font-size: 35px;
+  }
+
+  .vidUpl p {
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .icons {
+    justify-content: space-around;
+    width: 60vw;
+    font-size: 16px;
+    margin-left: 0;
+  }
+
+  .icons span {
+    font-size: 10px;
+  }
+
+  .icons .del {
+    height: 8vh;
+    width: 5vw;
+    margin-left: 3vw;
+  }
+  .inUser {
+    height: 8vh;
+    border-radius: 20vw;
+    padding-left: 5vw;
+  }
+}

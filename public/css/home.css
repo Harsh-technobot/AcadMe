@@ -1,0 +1,243 @@
+body {
+  overflow-x: hidden;
+}
+
+.container {
+  overflow-x: hidden;
+  background-color: black;
+  height: 100vh;
+  color: white;
+}
+
+/* Side Menu */
+
+.sideMenu {
+  position: fixed;
+  z-index: 10;
+  top: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #312f2f;
+  height: 90vh;
+  width: 10vw;
+  justify-content: space-between;
+}
+
+.icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 3vh;
+  height: 54vh;
+}
+
+.sideMenu .icons a.active {
+  color: #f1c40f;
+}
+
+.add {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 60px;
+  background-color: #ff5c00;
+  font-size: 4vw;
+  border: none;
+  margin-bottom: 3vh;
+  text-decoration: none;
+  color: white;
+}
+
+.add:hover {
+  background-color: rgb(255, 30, 0);
+}
+
+.votes {
+  text-align: center;
+}
+
+.sideMenu .icons a {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10vw;
+  height: 18vh;
+  align-self: center;
+  font-size: 4vw;
+  transition: 0.3s ease;
+}
+
+.sideMenu .icons a:hover {
+  background-color: rgb(255, 255, 255, 0.4);
+}
+
+/*video section division*/
+
+.no-resources {
+  width: 100vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.img-store {
+  width: 60px;
+  height: 60px;
+}
+
+.img-store img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 60px;
+}
+
+.vidSec {
+  margin-top: 5rem;
+  margin-left: 5rem;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.vidCon {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  height: 35vh;
+  width: 30vw;
+  margin: 1rem;
+}
+
+.vidTile {
+  text-decoration: none;
+  color: inherit;
+}
+
+.vidCon:hover {
+  transform: scale(1.05);
+}
+
+.column1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 19.24%;
+  height: 100%;
+  background-color: #211f1f;
+}
+
+.column1 i {
+  font-size: 25px;
+}
+
+.add-library-btn {
+  border: none;
+  color: white;
+  background-color: transparent;
+  cursor: pointer;
+  transition: 0.3s ease;
+  padding: 0.75rem;
+  border-radius: 50%;
+}
+
+.add-library-btn:hover {
+  background-color: rgb(255, 255, 255, 0.4);
+}
+
+.column2 {
+  display: flex;
+  flex-direction: column;
+  width: 80.76%;
+  height: 100%;
+}
+
+.row1 {
+  height: 73.26%;
+  width: 100%;
+}
+
+.thumb-image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.row2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-left: 2%;
+  padding-top: 4%;
+  height: 26.74%;
+  width: 100%;
+  background-color: #211f1f;
+  box-sizing: border-box;
+}
+
+.channel_name {
+  color: #ca2c2c;
+  padding-bottom: 3%;
+}
+
+.make_bold {
+  font-weight: bold;
+}
+
+@media screen and (max-width: 912px) {
+  .vidSec {
+    margin-left: 0;
+    margin-bottom: 5rem;
+  }
+
+  .vidCon {
+    height: 35vh;
+    width: 90vw;
+  }
+
+  .sideMenu {
+    position: fixed;
+    top: calc(100% - 10vh);
+    flex-direction: row;
+    width: 100vw;
+    height: 10vh;
+  }
+
+  .icons {
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0;
+    height: 10vh;
+    width: 60%;
+  }
+
+  .sideMenu .icons a {
+    font-size: 3rem;
+    height: 10vh;
+    width: 10vw;
+    padding: 0 2rem;
+  }
+
+  .add {
+    margin: 0 2rem;
+    font-size: 35px;
+    width: 60px;
+    height: 60px;
+  }
+}

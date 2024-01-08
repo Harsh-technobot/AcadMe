@@ -1,0 +1,162 @@
+body {
+  padding: 0;
+  margin: 0;
+  background-image: linear-gradient(45deg, #ff6464, #ffe162);
+  font-family: sans-serif;
+}
+
+.auth-container {
+  display: flex;
+  height: 80vh;
+  width: 70vw;
+  margin: 0 auto;
+  transform: translateY(20vh);
+}
+
+.img-store {
+  height: 80vh;
+  width: 42vw;
+}
+
+.img-store img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-top-left-radius: 25px;
+}
+
+.content {
+  background-color: white;
+  width: 28vw;
+  border-top-right-radius: 25px;
+  padding-left: 5vw;
+}
+
+.content i {
+  font-size: 30px;
+  margin-left: -4vw;
+  color: #ea00c4;
+}
+
+.content .signUpH {
+  margin-top: 2vh;
+  margin-bottom: 1vh;
+}
+
+.content .signInH {
+  margin-top: 8vh;
+  margin-bottom: 3vh;
+}
+
+.content h5 {
+  margin-top: 3vh;
+}
+
+.content .details {
+  border-style: hidden hidden solid hidden;
+  width: 18vw;
+  margin-top: 2.5vh;
+  border-color: rgb(202, 202, 202);
+  vertical-align: middle;
+  font-size: 19px;
+}
+
+.content .details::placeholder {
+  font-size: 16px;
+}
+
+.content .details:focus {
+  outline: none;
+  border-color: #ea00c4;
+}
+
+.content button {
+  border-radius: 25px;
+  background: linear-gradient(to right, #ea00c4, #ff6464);
+  border: none;
+  width: 12vw;
+  color: white;
+  font-size: 20px;
+  height: 6vh;
+  cursor: pointer;
+}
+
+.content .signUpbtn {
+  margin: 2vh auto 1.5vh;
+}
+
+.content .signInbtn {
+  margin: 10vh auto 12vh;
+}
+.content span {
+  font-size: 16px;
+}
+
+.content a {
+  text-decoration: none;
+  color: #b83dba;
+  font-size: 18px;
+}
+
+.fois {
+  margin-top: 1rem;
+}
+
+@media screen and (max-width: 912px) {
+  .auth-container {
+    width: 95vw;
+    flex-flow: column;
+  }
+
+  .fois {
+    margin-left: 15vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .img-store {
+    height: 30vh;
+    width: 100%;
+  }
+
+  .img-store img {
+    height: 100%;
+    width: 100%;
+    border-radius: 25px 25px 0 0;
+  }
+
+  .content {
+    width: 100%;
+    padding-left: 0;
+    border-radius: 0;
+    text-align: center;
+    padding-bottom: 6vh;
+  }
+
+  .content .signUpH {
+    font-size: 40px;
+    margin-top: 6vh;
+  }
+
+  .content .signInH {
+    font-size: 40px;
+    margin-top: 5vh;
+  }
+
+  .content .details {
+    width: 65vw;
+    font-size: 16px;
+  }
+
+  .content button {
+    width: 160px;
+    height: 40px;
+    margin: 5vh auto 5vh;
+  }
+
+  .content i {
+    position: absolute;
+    left: 10%;
+  }
+}

@@ -1,0 +1,20 @@
+<% layout("/layout/boilerplate") -%>
+<% block("head").append("<link rel='stylesheet' href='/css/sign_In_Up.css'>") %>
+<div class="auth-container">
+    <div class="img-store">
+        <img src="/images/books.png" alt="Sign In">
+    </div>
+    <div class="content">
+        <h1 class="signInH">Sign In</h1>
+        <form action="/auth/login" method="post">
+            <input type="text" class="details" placeholder="Email Address" required name="email">
+            <br>
+            <input type="password" class="details" placeholder="Password" required name="password">
+            <br>
+            <button type="Submit" class="signInbtn">Login</button>
+        </form>
+        <span>New to AcadMe?</span>
+        <br>
+        <a href="/auth/register">Sign Up</a>
+    </div>
+</div>
